@@ -9,8 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.Spring_Data_JPA_Hibernate.jdbc.Person;
-import com.example.Spring_Data_JPA_Hibernate.jdbc.PersonJdbcDao;
+import com.example.Spring_Data_JPA_Hibernate.entity.Person;
 import com.example.Spring_Data_JPA_Hibernate.jpa.PersonJpaRepository;
 
 @SpringBootApplication
@@ -37,6 +36,9 @@ public class SpringDataJpaHibernateApplication implements CommandLineRunner {
 		 */
 
 		 logger.info("User id 10001 --- {}", personJpaRepository.findById(10001));
+		 logger.info("Insert 10004 --- {}", personJpaRepository.insert(new Person(10004, "Tung", "Hanoi", new Date())));
+		 logger.info("Update 10003 --- {}", personJpaRepository.update(new Person(10003, "hazen", "Hanoi", new Date())));
+		 logger.info("All user --- {}", personJpaRepository.findAll());
 
 	}
 
